@@ -1,0 +1,52 @@
+<?php echo $this->extend('template/main') ?>
+<?php echo $this->section('content') ?>
+
+<div class="container">
+
+<form action="">
+  <div class="row mb-3">
+    <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nama">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="notelp" class="col-sm-2 col-form-label">NoTelp</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="notelp">
+    </div>
+  </div>  <div class="row mb-3">
+    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="alamat">
+    </div>
+  </div>
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Role</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1" >
+        <label class="form-check-label" for="gridRadios1">
+          Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2" checked>
+        <label class="form-check-label" for="gridRadios2">
+          User
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+
+  <a href="" class="btn btn-primary">Simpan</a><?php echo base_url('') ?>
+</form>
+</div>
+
+</div>
+
+
+
+
+<?= $this->endSection() ?>
