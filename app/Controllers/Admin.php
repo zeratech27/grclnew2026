@@ -45,7 +45,80 @@ class Admin extends BaseController
         return view('admin/form_guru');
     }
 
+
+// simpan data GUru:
     public function storedata_guru()
+    {
+        //load helper form and URL
+        helper(['form', 'url','session']);
+
+        $validation = $this->validate([
+            'nama' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Masukkan Nama Guru'
+                ]
+            ],
+            'notelp'    => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Nomor telpon saja'
+                ]
+            ],
+                'alamat'    => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Masukkan alamat jelas'
+                ]
+            ],
+                'role'    => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Pilih User'
+                ]
+            ],
+        ]);
+
+          if(!$validation) {
+
+            //render view with error validation message
+            return view('admin/form_guru', [
+                'validation' => $this->validator
+            ]);
+
+        } else {
+
+            //model initialize
+            $postModel = new M_Guru();
+            
+            //insert data into database
+            $data= [
+                'nama_guru'   => $this->request->getVar('nama'),
+                'alamat' => $this->request->getVar('alamat'),
+                'notelp' => $this->request->getVar('notelp'),
+                'role' => $this->request->getVar('role'),
+            ];
+            session()->setFlashdata('message', 'Post Berhasil Disimpan');
+            $postModel->insert($data);
+
+            // var_dump($data);
+            //flash message
+
+
+            return redirect()->to(base_url('admin/guru'));
+        }
+
+
+    }
+
+
+    public function input_murid()
+    {
+        return view('admin/form_murid');
+    }
+    // simpan Murid 
+
+     public function storedata_murid()
     {
         //load helper form and URL
         helper(['form', 'url','session']);

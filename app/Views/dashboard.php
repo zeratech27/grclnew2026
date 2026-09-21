@@ -112,7 +112,11 @@
             <div class="card bg-primary text-white shadow">
                 <div class="card-body">
                     Senin 
-                    <div class="text-white-50 small"><?php echo $harisenin->getnumrows(); ?> Murid</div>
+                    <a href="<?php echo base_url('/admin/murid') ?>" class="card-link">
+                    <div class="text-white-50 small">
+                            <?php echo $harisenin->getnumrows(); ?> Murid 
+                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -120,7 +124,11 @@
             <div class="card bg-success text-white shadow">
                 <div class="card-body">
                     Selasa
-                    <div class="text-white-50 small"><?php echo $hariselasa->getnumrows(); ?> Murid</div>
+                    <a href="<?php echo base_url('/admin/murid') ?>" class="card-link">
+                    <div class="text-white-50 small">
+                        <?php echo $hariselasa->getnumrows(); ?> Murid
+                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -128,15 +136,23 @@
             <div class="card bg-info text-white shadow">
                 <div class="card-body">
                     Rabu
-                    <div class="text-white-50 small"><?php echo $harirabu->getnumrows(); ?> Murid</div>
-                </div>
+                    <a href="<?php echo base_url('/admin/murid') ?>" class="card-link">
+                    <div class="text-white-50 small">
+                        <?php echo $harirabu->getnumrows(); ?> Murid
+                    </div>
+                    </a>
+                    </div>
             </div>
         </div>
         <div class="col-lg-6 mb-4">
             <div class="card bg-warning text-white shadow">
                 <div class="card-body">
                     Kamis
-                    <div class="text-white-50 small"><?php echo $harikamis->getnumrows(); ?> Murid</div>
+                    <a href="<?php echo base_url('/admin/murid') ?>" class="card-link">
+                    <div class="text-white-50 small">
+                        <?php echo $harikamis->getnumrows(); ?> Murid
+                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -144,7 +160,11 @@
             <div class="card bg-danger text-white shadow">
                 <div class="card-body">
                     Jumat
-                    <div class="text-white-50 small"><?php echo $harijumat->getnumrows(); ?> Murid</div>
+                    <a href="<?php echo base_url('/admin/murid') ?>" class="card-link">
+                    <div class="text-white-50 small">
+                        <?php echo $harijumat->getnumrows(); ?> Murid
+                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -152,7 +172,11 @@
             <div class="card bg-secondary text-white shadow">
                 <div class="card-body">
                     Sabtu
-                    <div class="text-white-50 small"><?php echo $harisabtu->getnumrows(); ?> Murid</div>
+                    <a href="<?php echo base_url('/admin/murid') ?>" class="card-link">
+                    <div class="text-white-50 small">
+                        <?php echo $harisabtu->getnumrows(); ?> Murid
+                    </div>
+                    </a>
                 </div>
             </div>
         </div>
