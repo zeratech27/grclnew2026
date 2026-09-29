@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Guru as M_Guru;
+use App\Models\Murid as M_Murid;
 
 class Admin extends BaseController
 {
@@ -54,7 +55,7 @@ class Admin extends BaseController
 
         $validation = $this->validate([
             'nama' => [
-                'rules'  => 'required',
+                'rules'  => 'required|alpha',
                 'errors' => [
                     'required' => 'Masukkan Nama Guru'
                 ]
@@ -93,10 +94,10 @@ class Admin extends BaseController
             
             //insert data into database
             $data= [
-                'nama_guru'   => $this->request->getVar('nama'),
-                'alamat' => $this->request->getVar('alamat'),
-                'notelp' => $this->request->getVar('notelp'),
-                'role' => $this->request->getVar('role'),
+                'nama_guru'   => $this->request->getPost('nama'),
+                'alamat' => $this->request->getPost('alamat'),
+                'notelp' => $this->request->getPost('notelp'),
+                'role' => $this->request->getPost('role'),
             ];
             session()->setFlashdata('message', 'Post Berhasil Disimpan');
             $postModel->insert($data);
@@ -125,9 +126,9 @@ class Admin extends BaseController
 
         $validation = $this->validate([
             'nama' => [
-                'rules'  => 'required',
+                'rules'  => 'required|alpha',
                 'errors' => [
-                    'required' => 'Masukkan Nama Guru'
+                    'required' => 'Masukkan Nama Murid'
                 ]
             ],
             'notelp'    => [
@@ -142,32 +143,25 @@ class Admin extends BaseController
                     'required' => 'Masukkan alamat jelas'
                 ]
             ],
-                'role'    => [
-                'rules'  => 'required',
-                'errors' => [
-                    'required' => 'Pilih User'
-                ]
-            ],
         ]);
 
           if(!$validation) {
 
             //render view with error validation message
-            return view('admin/form_guru', [
+            return view('admin/form_murid', [
                 'validation' => $this->validator
             ]);
 
         } else {
 
             //model initialize
-            $postModel = new M_Guru();
+            $postModel = new M_Murid();
             
             //insert data into database
             $data= [
-                'nama_guru'   => $this->request->getVar('nama'),
+                'nama_murid'   => $this->request->getVar('nama'),
                 'alamat' => $this->request->getVar('alamat'),
-                'notelp' => $this->request->getVar('notelp'),
-                'role' => $this->request->getVar('role'),
+                'notelp' => $this->request->getVar('notelp')
             ];
             session()->setFlashdata('message', 'Post Berhasil Disimpan');
             $postModel->insert($data);
@@ -176,7 +170,7 @@ class Admin extends BaseController
             //flash message
 
 
-            return redirect()->to(base_url('admin/guru'));
+            return redirect()->to(base_url('admin/murid'));
         }
 
 

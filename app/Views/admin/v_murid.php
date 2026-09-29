@@ -5,27 +5,26 @@
 <div class="table-responsive">
 		<a href="<?php echo base_url('admin/inputmurid'); ?>" class="btn btn-warning">Tambah</a>
 <table class="table table-sm table-hover">
-		<tr class="text-left">
-			<td>No</td>
-			<td>Murid</td>
-			<td>Wali</td>
-			<td>HP</td>
+	<thead>
+	<tr class="text-left">
+			<th>No</th>
+			<th>Nama</th>
+			<th>Notelp</th>
+			<th>Alamat</th>
 		</tr>
-		<?php
+	</thead>
+	<tbody>
+	<?php
 		$n= 1; 
-		if(!empty($row)){
-			foreach($murid->getResult() as $row): ?>
+		foreach($murid->getResult() as $row): ?>
 		<tr class="text-left">
 			<td><?php echo $n++ ?></td>
 			<td><?php echo $row->nama_murid; ?></td>
-			<td><?php echo $row->wali; ?></td>
-			<td><?php echo $row->notelp ?></td>
+			<td><?php echo $row->notelp; ?></td>
+			<td><?php echo $row->alamat; ?></td>
 			<?php endforeach; ?>
-
-	<?php	} else {  ?>
-				</tr>
-		<?php echo " <h3> Data Belum ada! </h3>"; } ?>
-
+		</tr>
+	</tbody>	
 
 	</table>
 </div>

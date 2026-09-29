@@ -8,7 +8,7 @@
     </div>
 <?php } ?>
 
-<form method="POST" action="<?php echo base_url('').'/admin/simpanform' ?>">
+<form method="POST" action="<?php echo base_url('').'admin/simpanguru' ?>">
   <div class="row mb-3">
     <label for="nama" class="col-sm-2 col-form-label">Nama</label>
     <div class="col-sm-10">
